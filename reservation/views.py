@@ -9,4 +9,9 @@ from reservation.models import reservation
 
 
 def reserv_table(request):
-    return render(request,'reservation/reservation.html')
+    reservations = reservation.objects.all()
+    context = {
+        'reservations' : reservations 
+    }
+
+    return render(request ,'reservation/reservation.html' , context)

@@ -8,5 +8,15 @@
 </head>
 <body>
     <h1>Reserve a table!</h1>
+    {{ reservations }} 
+
+    <table>
+    {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation.name }}</td>
+            <td>{{ reservation.email }}</td>
+        </tr>
+    {% endfor %}
+    </table>
 </body>
 </html>
