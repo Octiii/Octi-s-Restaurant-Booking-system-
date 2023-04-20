@@ -19,5 +19,5 @@ from reservation.views import reserv_table
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('reserv/', reserv_table, name='reserv')
+    path('', reserv_table, name='reserv')
 ]

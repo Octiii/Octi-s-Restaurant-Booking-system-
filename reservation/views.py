@@ -9,4 +9,4 @@ from reservation.models import reservation
 
 
 def reserv_table(request):
-    pass
+    return render(request,'reservation/reservation.html')
