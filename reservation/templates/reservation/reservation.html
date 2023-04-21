@@ -8,15 +8,27 @@
 </head>
 <body>
     <h1>Reserve a table!</h1>
-    {{ reservations }} 
+    <form method="POST" action="reserv_table">
+        {% csrf_token %}
+        <div>
+            <p>
+                <input type="text" id="id_name" name="reservation_name">
+            </p>
+        </div>
+        <div>
+            <p>
 
-    <table>
-    {% for reservation in reservations %}
-        <tr>
-            <td>{{ reservation.name }}</td>
-            <td>{{ reservation.email }}</td>
-        </tr>
+            </p>
+        </div>
+        <div>
+            <p>
+
+            </p>
+        </div>
+    </form>
+    <h1>Bookings already made.</h1>
+    {% for reservations in reservations %}
+    <p> {{ reservations }} </p>
     {% endfor %}
-    </table>
 </body>
 </html>
