@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from reservation.views import reserv_table 
+from reservation.views import reserv_table, delete_reservation
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', reserv_table, name='reservations'),
-    path('reserv_table', reserv_table, name='reserv_table'),
+    path('', include("reservation.urls")),
 ]
