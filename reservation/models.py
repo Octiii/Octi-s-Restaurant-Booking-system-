@@ -5,7 +5,7 @@ from django.db import models
 
 class reservation(models.Model):
     name = models.CharField(max_length=50)
-#    email = models.EmailField()
+    email = models.EmailField(default='your email here')
 #    phone = models.IntegerField()
 #    persons = models.IntegerField() 
 #    date = models.DateField() 
