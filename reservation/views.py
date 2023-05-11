@@ -4,20 +4,20 @@ from .models import reservation
 
 
 def reserv_table(request):
-    reservations = reservation.objects.all()
+    person = reservation.objects.all()
     context = {
-        'reservations' : reservations
+        'person' : person
     }
     if request.method == 'POST':
         name = request.POST.get('reservation_name')
         reservation.objects.create(name=name)
-        name = request.POST.get('email_name')
+        email = request.POST.get('email_name')
         reservation.objects.create(email=email)
     return render(request, 'reservation/reservation.html', context)
 
 
-def delete_reservation(request, reservations_id):
-    reserv = get_object_or_404(reservation, id=reservations_id)
+def delete_reservation(request, person_id):
+    reserv = get_object_or_404(reservation, id=person_id)
     reserv.delete()
 
     return redirect('/')

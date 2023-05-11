@@ -13,6 +13,7 @@
         <div>
             <p>
                 <input type="text" id="id_name" name="reservation_name">
+                
             </p>
         </div>
             <p>
@@ -20,20 +21,25 @@
             </p>
         <div>
             <p>
-
+                <input type="submit" value="Submit">
             </p>
         </div>
+        
     </form>
     <h1>Bookings already made.</h1>
-    {% for reservations in reservations %}
-    <p> {{ reservations }} </p>
-    <div>
-        <p>
-            <a href = "{% url 'delete' reservations.id%}">
-                <button>Delete</button>
-            </a>
-        </p>
-    </div>
-    {% endfor %}
+ 
+
+ {% for x in person %} 
+    <p> {{ x.name }} </p>
+    <p> {{ x.email }} </p>
+    <p>
+        <a href = "{% url 'delete' person.id %}" method="POST">
+            <button>Delete</button>
+        </a>
+    </p>
+ {% endfor %} 
+
+
+
 </body>
 </html>
