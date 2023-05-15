@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from reservation.views import reserv_table, delete_reservation
+from reservation import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),

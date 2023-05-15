@@ -28,18 +28,15 @@
     </form>
     <h1>Bookings already made.</h1>
  
-
  {% for x in person %} 
     <p> {{ x.name }} </p>
     <p> {{ x.email }} </p>
     <p>
-        <a href = "{% url 'delete' person.id %}" method="POST">
+        <a href = "/delete/{{x.id}} " method="POST">
             <button>Delete</button>
         </a>
     </p>
  {% endfor %} 
-
-
 
 </body>
 </html>
