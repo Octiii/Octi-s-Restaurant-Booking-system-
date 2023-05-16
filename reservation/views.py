@@ -11,7 +11,10 @@ def reserv_table(request):
     if request.method == 'POST':
         name = request.POST.get('reservation_name')
         email = request.POST.get('email_name')
-        reservation.objects.create(name=name, email=email)
+        phone = request.POST.get('number_name')
+        persons = request.POST.get('number_persons')
+        date = request.POST.get('date_time')
+        reservation.objects.create(name=name, email=email, phone=phone, persons=persons, date=date)
     return render(request, 'reservation/reservation.html', context)
 
 
