@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import reservation
+import datetime
 
 
 def reserv_table(request):
@@ -16,6 +17,7 @@ def reserv_table(request):
         date = request.POST.get('date_time')
         reservation.objects.create(name=name, email=email, phone=phone, persons=persons, date=date)
     return render(request, 'reservation/reservation.html', context)
+    
 
 
 def delete_reservation(request, reserv_id):

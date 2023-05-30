@@ -7,21 +7,22 @@
     <title>Document</title>
     {% load static %}
 
-    <link rel="stylesheet" href="{% static 'reservation/style.css' %}">
+    <link rel="stylesheet" href="{% static '/reservation/style.css' %}">
+
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
 </head>
 <nav>
-    <div class="container">
+    <div class="">
         
     </div>
 </nav>
 <body>
 
     <!-- imput field -->
-
-    <div class="container mt-3">
+<div class="container" id="bgimg">
+    <div class="container mt-3" id="input">
         <h2>Book a table!</h2>
         
         <form class="container mt-3" method="POST" action="reserv_table">
@@ -49,6 +50,7 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
+</div>
     <!-- display field -->
     <h1 class="">Bookings already made.</h1>
  
@@ -66,6 +68,9 @@
  {% endfor %} 
 
 </body> 
+<footer>
+
+</footer>
 <script>
 
 id_name.oninput = function () {
