@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
 
-    <link rel="stylesheet" href="{% static '/reservation/style.css' %}">
 
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-</head>
-<nav>
-    <div class="">
-        
-    </div>
-</nav>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
 <body>
-
     <!-- imput field -->
-<div class="container" id="bgimg">
+<div class="container-fluid" id="bgimg">
     <div class="container mt-3" id="input">
-        <h2>Book a table!</h2>
+        <h2 class="text-center text-light">Book a table!</h2>
         
         <form class="container mt-3" method="POST" action="reserv_table">
             {% csrf_token %}
@@ -51,47 +38,8 @@
         </form>
       </div>
 </div>
-    <!-- display field -->
-    <h1 class="">Bookings already made.</h1>
- 
- {% for x in person %} 
-    <p> {{ x.name }} </p>
-    <p> {{ x.email }} </p>
-    <p> {{ x.phone }} </p>
-    <p> {{ x.persons }} </p>
-    <p> {{ x.date }} </p>
-    <p>
-        <a href = "/delete/{{x.id}} " method="POST">
-            <button>Delete</button>
-        </a>
-    </p>
- {% endfor %} 
+   
 
 </body> 
-<footer>
 
-</footer>
-<script>
-
-id_name.oninput = function () {
-    if (this.value.length > 50)
-        this.value = this.value.slice(0,50); 
-}
-
-id_email.oninput = function () {
-    if (this.value.length > 50)
-        this.value = this.value.slice(0,50); 
-}
-
-id_number.oninput = function () {
-    if (this.value.length > 12)
-        this.value = this.value.slice(0,12); 
-}
-
-id_persons.oninput = function () {
-    if (this.value.length > 2)
-        this.value = this.value.slice(0,2); 
-}
-
-</script>
-</html>
+{% endblock %}

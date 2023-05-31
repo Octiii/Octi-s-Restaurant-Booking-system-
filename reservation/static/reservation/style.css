@@ -8,8 +8,14 @@
     backdrop-filter: blur(3.2px);
     -webkit-backdrop-filter: blur(3.2px);
     border: 1px solid rgba(255, 255, 255, 0.27);
+    padding: 5px;
 }
 
-#bgimg {
-    background-image:url("images/blog-3.jpg");
+body {
+    background:url("images/bgimg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "Times New Roman", Times, serif !important;
 }
