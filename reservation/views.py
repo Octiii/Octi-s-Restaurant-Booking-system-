@@ -3,6 +3,8 @@ from django.views import generic
 from .models import reservation
 import datetime
 
+def home(self):
+    return render(self, 'reservation/home.html')
 
 def reserv_table(request):
     person = reservation.objects.all()
@@ -31,4 +33,4 @@ def delete_reservation(request, reserv_id):
     reserv = get_object_or_404(reservation, id=reserv_id)
     reserv.delete()
 
-    return redirect('reservation.html')
+    return redirect('bookings_navigation')
