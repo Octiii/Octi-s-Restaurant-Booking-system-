@@ -3,9 +3,11 @@
 {% block content %}
 
   <!-- display field -->
-   <h1 class="">Bookings already made.</h1>
- 
+<h1 class="">Bookings already made.</h1>
+ <div class="row" >
    {% for x in person %} 
+   
+    <div class="col-md-4" id="booking_container">
       <p> {{ x.name }} </p>
       <p> {{ x.email }} </p>
       <p> {{ x.phone }} </p>
@@ -16,6 +18,8 @@
               <button>Delete</button>
           </a>
       </p>
+    </div>
+    
    {% endfor %} 
-
+</div>
 {% endblock %}

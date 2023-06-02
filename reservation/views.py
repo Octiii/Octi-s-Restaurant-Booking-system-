@@ -4,13 +4,6 @@ from .models import reservation
 import datetime
 
 
-class BookingsList(generic.ListView):
-    model = reservation
-    queryset = reservation.objects
-    template_name = 'bookings.html'
-
-
-
 def reserv_table(request):
     person = reservation.objects.all()
     context = {
@@ -27,8 +20,11 @@ def reserv_table(request):
 
 
 def bookings_navigation(self):
-
-    return render(self, 'reservation/bookings.html')
+    person = reservation.objects.all()
+    context = {
+        'person' : person
+    }
+    return render(self, 'reservation/bookings.html', context)
 
 
 def delete_reservation(request, reserv_id):
