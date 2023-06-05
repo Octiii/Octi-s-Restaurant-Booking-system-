@@ -14,3 +14,10 @@ class reservation(models.Model):
     def __str__(self):
         return self.name
         
+
+class dish(models.Model):
+    name = models.CharField(max_length=255)
+    text = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name

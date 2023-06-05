@@ -1,0 +1,53 @@
+{% extends "/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/base.html" %}
+  
+{% block content %}
+<h1>
+    Very nice dishes yes!
+</h1>
+
+<div class="container-fluid" id="bgimg">
+    <div class="container mt-3" id="input">
+        <h2 class="text-center text-light">Make your own dish!</h2>
+        
+        <form class="container mt-3" method="POST" action="make_dish">
+            {% csrf_token %}
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="id_name" placeholder="Name" name="dish_name" maxlength="50">
+                    <label for="id_name">Name</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="id_text" placeholder="Dish Description" name="dish_text" maxlength="50">
+                    <label for="text">Dish Description</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+</div>
+<h1 class="">Menu.</h1>
+ <div class="row" >
+
+    <div class="col-sm-2">
+    </div>
+
+    <div class="col-sm-8">
+      <div class="row" >
+   {% for x in menuItem %} 
+   
+    <div class="col-sm-4" id="booking_container">
+
+      <h5> {{ x.name }} </h5>
+      <h6> {{ x.text }} </h6>
+ 
+    </div>
+    
+   {% endfor %} 
+    </div>
+  </div>
+
+   <div class="col-sm-2">
+   </div>
+
+
+</div>
+{% endblock %}

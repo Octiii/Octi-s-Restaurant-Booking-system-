@@ -5,15 +5,21 @@
   <!-- display field -->
 <h1 class="">Bookings already made.</h1>
  <div class="row" >
+
+    <div class="col-sm-2">
+    </div>
+
+    <div class="col-sm-8">
+      <div class="row" >
    {% for x in person %} 
    
-    <div class="col-md-4" id="booking_container">
-      <p> {{ x.name }} </p>
-      <p> {{ x.email }} </p>
-      <p> {{ x.phone }} </p>
-      <p> {{ x.persons }} </p>
-      <p> {{ x.date }} </p>
-      <p>
+    <div class="col-sm-4" id="booking_container">
+      <h5> {{ x.name }} </h5>
+      <h6> {{ x.email }} </h6>
+      <h6> {{ x.phone }} </h6>
+      <h6> {{ x.persons }} </h6>
+      <h6> {{ x.date }} </h6>
+      <h6>
           <a href = "/delete/{{ x.id }} " method="POST">
               <button>Delete</button>
           </a>
@@ -21,5 +27,12 @@
     </div>
     
    {% endfor %} 
+    </div>
+  </div>
+
+   <div class="col-sm-2">
+   </div>
+
+
 </div>
 {% endblock %}
