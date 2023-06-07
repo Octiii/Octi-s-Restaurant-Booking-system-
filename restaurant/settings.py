@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'reservation',
     'bootstrap5',
+    'ckeditor',
 
 ]
 

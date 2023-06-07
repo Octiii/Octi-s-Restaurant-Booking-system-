@@ -8,7 +8,11 @@ def home(self):
 
 
 def menu(self):
-    return render(self, 'reservation/menu.html')
+    menuItem = dish.objects.all()
+    context = {
+        'menuItem' : menuItem
+    }
+    return render(self, 'reservation/menu.html',context)
 
 
 def reserv_table(request):
