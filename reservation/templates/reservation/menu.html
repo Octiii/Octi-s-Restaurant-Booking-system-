@@ -32,11 +32,11 @@
 
     <div class="col-sm-8">
       <div class="row" >
-   {% for dish in dishList %} 
+   {% for x in dish_list %} 
    
     <div class="col-sm-4" id="booking_container">
 
-      <h5> {{ dish.name }} </h5>
+      <h5> {{ x.name }} </h5>
       <img class="card-img-top" src=" {{ dish.featured_image.url }}">
       
     </div>
