@@ -8,7 +8,7 @@ from django.contrib import admin
 urlpatterns = [
     path('', views.home, name='home'),# The '' - need to match -> HTML. After , is the view name you want to link it to. Name parameter has no function as of now. 
     path('home', views.home, name='home'),
-    path('menu', views.menu, name='menu'),
+    path('menu', views.dishList.as_view(), name='menu'),
     path('make_dish', views.make_dish, name='make_dish'),
     path('reserv_table', views.reserv_table, name='reserv_table'),
     path('bookings_navigation', views.bookings_navigation, name='bookings_navigation'),

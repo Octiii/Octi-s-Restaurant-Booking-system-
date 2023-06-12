@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['octis-booking-system.herokuapp.com', 'localhost', '8000-octiii-octisrestaurantb-upeg615trq2.ws-eu98.gitpod.io']
+ALLOWED_HOSTS = ['octis-booking-system.herokuapp.com', 'localhost', '8000-octiii-octisrestaurantb-upeg615trq2.ws-eu99.gitpod.io']
 
 
 # Application definition

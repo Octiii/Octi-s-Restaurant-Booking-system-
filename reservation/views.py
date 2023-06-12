@@ -3,16 +3,24 @@ from django.views import generic
 from .models import reservation, dish
 import datetime
 
+
+
 def home(self):
     return render(self, 'reservation/home.html')
 
 
-def menu(self):
-    menuItem = dish.objects.all()
-    context = {
-        'menuItem' : menuItem
-    }
-    return render(self, 'reservation/menu.html',context)
+class dishList(generic.ListView):
+    model = dish
+    queryset = dish.objects.all
+    template_name = '/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/menu.html'
+
+
+#def menu(self):
+ #   menuItem = dish.objects.all()
+ #   context = {
+ #       'menuItem' : menuItem
+ #   }
+ #   return render(self, 'reservation/menu.html',context)
 
 
 def reserv_table(request):
@@ -56,8 +64,9 @@ def delete_reservation(request, reserv_id, dish_id):
 
     return redirect('bookings_navigation')
 
+
 def delete_dish(request, dish_id):
-    dish = get_object_or_404( dish, id=dish_id)
+    dish = get_object_or_404(dish, id=dish_id)
     dish.delete()
 
     return redirect('bookings_navigation')
