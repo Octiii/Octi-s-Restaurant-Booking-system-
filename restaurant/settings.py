@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'reservation',
     'bootstrap5',
     'ckeditor',
+    'django_summernote',
 
 ]
 

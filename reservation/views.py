@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views import generic
+from django.views import generic, View
 from .models import reservation, dish
 import datetime
 
@@ -11,7 +11,7 @@ def home(self):
 
 class dishList(generic.ListView):
     model = dish
-    queryset = dish.objects.all
+    queryset = dish.objects.all()
     template_name = '/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/menu.html'
 
 
@@ -58,8 +58,8 @@ def bookings_navigation(self):
     return render(self, 'reservation/bookings.html', context)
 
 
-def delete_reservation(request, reserv_id, dish_id):
-    reserv = get_object_or_404(reservation, dish, id=reserv_id)
+def delete_reservation(request, reserv_id):
+    reserv = get_object_or_404(reservation, id=reserv_id)
     reserv.delete()
 
     return redirect('bookings_navigation')

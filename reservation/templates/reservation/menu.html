@@ -16,8 +16,9 @@
                     <label for="id_name">Name</label>
                 </div>
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="id_text" placeholder="Dish Description" name="dish_text" maxlength="50">
+                    
                     <label for="text">Dish Description</label>
+                    {{ foobar|safe }}
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -32,11 +33,11 @@
 
     <div class="col-sm-8">
       <div class="row" >
-   {% for x in dish_list %} 
+   {% for dish in dish_list %} 
    
     <div class="col-sm-4" id="booking_container">
 
-      <h5> {{ x.name }} </h5>
+      <h5> {{ dish.name }} </h5>
       <img class="card-img-top" src=" {{ dish.featured_image.url }}">
       
     </div>
