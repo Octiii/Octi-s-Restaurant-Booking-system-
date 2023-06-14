@@ -9,12 +9,6 @@ def home(self):
     return render(self, 'reservation/home.html')
 
 
-class dishList(generic.ListView):
-    model = dish
-    queryset = dish.objects.all()
-    template_name = '/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/menu.html'
-
-
 #def menu(self):
  #   menuItem = dish.objects.all()
  #   context = {
@@ -22,6 +16,13 @@ class dishList(generic.ListView):
  #   }
  #   return render(self, 'reservation/menu.html',context)
 
+
+def bookings_navigation(self):
+    person = reservation.objects.all()
+    context = {
+        'person' : person
+    }
+    return render(self, 'reservation/bookings.html', context)
 
 def reserv_table(request):
     person = reservation.objects.all()
@@ -37,6 +38,10 @@ def reserv_table(request):
         reservation.objects.create(name=name, email=email, phone=phone, persons=persons, date=date)
     return render(request, 'reservation/reservation.html', context)
 
+class dishList(generic.ListView):
+    model = dish
+    queryset = dish.objects.all()
+    template_name = '/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/menu.html'
 
 def make_dish(request):
     menuItem = dish.objects.all()
@@ -47,15 +52,15 @@ def make_dish(request):
         name = request.POST.get('dish_name')
         text = request.POST.get('dish_text')
         dish.objects.create(name=name, text=text)
-    return render(request, 'reservation/menu.html', context)
+    return render(request, 'reservation/menu.html')
+
+def delete_dish(request, dish_id):
+    dish = get_object_or_404(dish, id=dish_id)
+    dish.delete()
+
+    return redirect('bookings_navigation')
 
 
-def bookings_navigation(self):
-    person = reservation.objects.all()
-    context = {
-        'person' : person
-    }
-    return render(self, 'reservation/bookings.html', context)
 
 
 def delete_reservation(request, reserv_id):
@@ -65,8 +70,3 @@ def delete_reservation(request, reserv_id):
     return redirect('bookings_navigation')
 
 
-def delete_dish(request, dish_id):
-    dish = get_object_or_404(dish, id=dish_id)
-    dish.delete()
-
-    return redirect('bookings_navigation')

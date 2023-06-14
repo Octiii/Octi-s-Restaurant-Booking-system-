@@ -5,6 +5,7 @@
     Very nice dishes yes!
 </h1>
 
+<!-- Original form to make a dish. 
 <div class="container-fluid" id="bgimg">
     <div class="container mt-3" id="input">
         <h2 class="text-center text-light">Make your own dish!</h2>
@@ -25,6 +26,19 @@
         </form>
       </div>
 </div>
+-->
+
+<!-- New attept using a form class.-->
+
+<form action="make_dish" method="post">
+  {% csrf_token %}
+  <label for="your_name">Your Dish: </label>
+  <input id="id_name" type="text" name="dish_name" value="{{ text }}">
+  <input id="id_text" type="text" name="dish_text" value="{{ text }}">
+  <input type="submit" value="OK">
+</form>
+
+
 <h1 class="">Menu.</h1>
  <div class="row" >
 
@@ -38,6 +52,7 @@
     <div class="col-sm-4" id="booking_container">
 
       <h5> {{ dish.name }} </h5>
+      <h5> {{ dish.text }} </h5>
       <img class="card-img-top" src=" {{ dish.featured_image.url }}">
       
     </div>
