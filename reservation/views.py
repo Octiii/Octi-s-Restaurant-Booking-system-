@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import reservation, dish
+from .forms import dishForm
 import datetime
 
 
@@ -17,12 +18,16 @@ def home(self):
  #   return render(self, 'reservation/menu.html',context)
 
 
+ #Bookings Code
+
+
 def bookings_navigation(self):
     person = reservation.objects.all()
     context = {
         'person' : person
     }
     return render(self, 'reservation/bookings.html', context)
+
 
 def reserv_table(request):
     person = reservation.objects.all()
@@ -38,35 +43,43 @@ def reserv_table(request):
         reservation.objects.create(name=name, email=email, phone=phone, persons=persons, date=date)
     return render(request, 'reservation/reservation.html', context)
 
-class dishList(generic.ListView):
-    model = dish
-    queryset = dish.objects.all()
-    template_name = '/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/menu.html'
-
-def make_dish(request):
-    menuItem = dish.objects.all()
-    context = {
-        'menuItem' : menuItem
-    }
-    if request.method == 'POST':
-        name = request.POST.get('dish_name')
-        text = request.POST.get('dish_text')
-        dish.objects.create(name=name, text=text)
-    return render(request, 'reservation/menu.html')
-
-def delete_dish(request, dish_id):
-    dish = get_object_or_404(dish, id=dish_id)
-    dish.delete()
-
-    return redirect('bookings_navigation')
-
-
-
 
 def delete_reservation(request, reserv_id):
     reserv = get_object_or_404(reservation, id=reserv_id)
     reserv.delete()
 
     return redirect('bookings_navigation')
+
+
+#Dish Code
+
+
+class dishList(generic.ListView):
+    model = dish
+    queryset = dish.objects.all()
+    template_name = '/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/menu.html'
+
+
+class MakeDish(generic.CreateView):
+    model = dish
+    form_class = dishForm
+    template_name = 'reservation/dishmaker.html'
+    success_url = 'menu'
+    success_mesage = 'New dish added!'
+
+
+#def make_dish(request):
+#    menuItem = dish.objects.all()
+#    context = {
+#        'menuItem' : menuItem
+#    }
+#    if request.method == 'POST':
+#        name = request.POST.get('dish_name')
+#        text = request.POST.get('dish_text')
+#        dish.objects.create(name=name, text=text)
+#    return render(request, 'menu.html', dishList)
+
+
+
 
 

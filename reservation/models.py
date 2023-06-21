@@ -18,7 +18,7 @@ class reservation(models.Model):
 
 class dish(models.Model):
     name = models.CharField(max_length=255)
-    text = models.CharField(max_length=255)
+    text = models.CharField(max_length=5000)
     featured_image = CloudinaryField("image", default='palceholder')
     created_on = models.DateTimeField(auto_now_add=True)
 

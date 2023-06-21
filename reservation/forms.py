@@ -4,11 +4,9 @@ from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 
 class dishForm(forms.ModelForm):
+    text = forms.CharField(widget=SummernoteWidget())
+
     class Meta:
         model = dish
-        fields = ('text')
-        widgets = {
-            'foo': SummernoteWidget(),
-            'bar': SummernoteInplaceWidget(),
-        }
-
+        fields = ['name', 'text', 'featured_image']
+       

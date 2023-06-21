@@ -1,42 +1,6 @@
 {% extends "/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/base.html" %}
   
 {% block content %}
-<h1>
-    Very nice dishes yes!
-</h1>
-
-<!-- Original form to make a dish. 
-<div class="container-fluid" id="bgimg">
-    <div class="container mt-3" id="input">
-        <h2 class="text-center text-light">Make your own dish!</h2>
-        
-        <form class="container mt-3" method="POST" action="make_dish">
-            {% csrf_token %}
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="id_name" placeholder="Name" name="dish_name" maxlength="50">
-                    <label for="id_name">Name</label>
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    
-                    <label for="text">Dish Description</label>
-                    {{ foobar|safe }}
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-</div>
--->
-
-<!-- New attept using a form class.-->
-
-<form action="make_dish" method="post">
-  {% csrf_token %}
-  <label for="your_name">Your Dish: </label>
-  <input id="id_name" type="text" name="dish_name" value="{{ text }}">
-  <input id="id_text" type="text" name="dish_text" value="{{ text }}">
-  <input type="submit" value="OK">
-</form>
 
 
 <h1 class="">Menu.</h1>
@@ -51,9 +15,14 @@
    
     <div class="col-sm-4" id="booking_container">
 
-      <h5> {{ dish.name }} </h5>
-      <h5> {{ dish.text }} </h5>
-      <img class="card-img-top" src=" {{ dish.featured_image.url }}">
+      <h5> {{ dish.name|safe }} </h5>
+      <h5> {{ dish.text|safe }} </h5>
+      {% if "placeholder" in post.featured_image.url %}
+          <img class="card-img-top"
+            src="https://www.google.at/url?sa=i&url=https%3A%2F%2Fwww.medienwerkstatt-online.de%2Flws_wissen%2Fvorlagen%2Fshowcard.php%3Fid%3D17480%26edit%3D0&psig=AOvVaw1v5FIxfYll-Q7tQXrPpB93&ust=1687443114858000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIjs1M3F1P8CFQAAAAAdAAAAABAE">
+       {% else %}
+            <img class="card-img-top" src=" {{ dish.featured_image.url }}" alt="Tasty dish Image!">
+       {% endif %}
       
     </div>
     

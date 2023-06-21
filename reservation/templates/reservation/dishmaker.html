@@ -1,0 +1,37 @@
+{% extends "/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/base.html" %}
+  
+{% block content %}
+
+<form action="make_dish" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<!-- Original form to make a dish. 
+<div class="container-fluid" id="bgimg">
+    <div class="container mt-3" id="input">
+        <h2 class="text-center text-light">Make your own dish!</h2>
+        
+        <form class="container mt-3" method="POST" action="make_dish">
+            {% csrf_token %}
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="id_name" placeholder="Name" name="dish_name" maxlength="50">
+                    <label for="id_name">Name</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    
+                    <label for="text">Dish Description</label>
+                    {{ foobar|safe }}
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+</div>
+-->
+
+<!-- New attept using a form class.-->
+{% endblock %}
