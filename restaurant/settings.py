@@ -69,7 +69,11 @@ ROOT_URLCONF = 'restaurant.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [
+
+            BASE_DIR / '/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/'
+
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
