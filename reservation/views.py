@@ -67,6 +67,11 @@ class MakeDish(generic.CreateView):
     success_url = 'menu'
     success_mesage = 'New dish added!'
 
+    def get_context_data(self, **kwargs):
+        context = super(MakeDish, self).get_context_data(**kwargs)
+        context['photos'] = dish.objects.all().order_by('-created_on')
+        return context
+
 
 #def make_dish(request):
 #    menuItem = dish.objects.all()

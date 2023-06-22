@@ -2,7 +2,7 @@
   
 {% block content %}
 
-<form action="make_dish" method="post">
+<form action="{% url 'make_dish' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
 
