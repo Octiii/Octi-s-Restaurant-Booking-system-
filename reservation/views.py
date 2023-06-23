@@ -57,7 +57,7 @@ def delete_reservation(request, reserv_id):
 class dishList(generic.ListView):
     model = dish
     queryset = dish.objects.all()
-    template_name = '/workspace/Octi-s-Restaurant-Booking-system-/reservation/templates/reservation/menu.html'
+    template_name = 'reservation/menu.html'
 
 
 class MakeDish(generic.CreateView):
