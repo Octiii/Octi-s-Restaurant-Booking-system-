@@ -7,7 +7,7 @@ import datetime
 
 
 def home(self):
-    return render(self, 'reservation/home.html')
+    return render(self, 'home.html')
 
 
 #def menu(self):
@@ -26,7 +26,7 @@ def bookings_navigation(self):
     context = {
         'person' : person
     }
-    return render(self, 'reservation/bookings.html', context)
+    return render(self, 'bookings.html', context)
 
 
 def reserv_table(request):
@@ -41,7 +41,7 @@ def reserv_table(request):
         persons = request.POST.get('number_persons')
         date = request.POST.get('date_time')
         reservation.objects.create(name=name, email=email, phone=phone, persons=persons, date=date)
-    return render(request, 'reservation/reservation.html', context)
+    return render(request, 'reservation.html', context)
 
 
 def delete_reservation(request, reserv_id):
@@ -57,13 +57,13 @@ def delete_reservation(request, reserv_id):
 class dishList(generic.ListView):
     model = dish
     queryset = dish.objects.all()
-    template_name = 'reservation/menu.html'
+    template_name = 'menu.html'
 
 
 class MakeDish(generic.CreateView):
     model = dish
     form_class = dishForm
-    template_name = 'reservation/dishmaker.html'
+    template_name = 'dishmaker.html'
     success_url = 'menu'
     success_mesage = 'New dish added!'
 
