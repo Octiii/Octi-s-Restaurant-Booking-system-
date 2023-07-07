@@ -40,7 +40,8 @@ DEBUG = False
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['octis-booking-system.herokuapp.com', 'localhost', '8000-octiii-octisrestaurantb-upeg615trq2.ws-eu100.gitpod.io', '*']
+ALLOWED_HOSTS = ['octis-booking-system.herokuapp.com', 'localhost', '*'] 
+
 
 
 # Application definition
