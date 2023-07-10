@@ -9,7 +9,7 @@
     <title>Document</title>
     {% load static %}
 
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
 
     {% load bootstrap5 %}
     {% bootstrap_css %}
@@ -37,7 +37,7 @@
         </ul>
     
 </nav>
-<body class="text-light">
+<body class="text-light" style="background: url('{% static 'Images/bgimg.jpg' %}') no-repeat center center;">
 {% block content %}
 <!-- Content Goes here -->
 {% endblock content %}
