@@ -36,7 +36,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -73,6 +73,23 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'restaurant.urls'
+
+SUMMERNOTE_CONFIG = { 
+
+    'disableDragAndDrop': True,
+    'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ],
+    'disable_attachment': False,
+     
+}
 
 TEMPLATES = [
     {
