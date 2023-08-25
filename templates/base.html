@@ -19,6 +19,27 @@
 <nav class="navbar navbar-expand-sm justify-content-center bg-dark">
     
         <ul class="navbar-nav">
+
+            {% if user.is_authenticated %}
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_logout' %}">LogOut</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'make_dish' %}">Dish Maker 6000!</a>
+            </li>
+            
+            {% else %}
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_login' %}">LogIn</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+            </li>
+
+            {% endif %}
+                        
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
             </li>
@@ -31,21 +52,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'bookings_navigation' %}">View Bookings</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'make_dish' %}">Dish Maker 6000!</a>
-            </li>
         </ul>
     
 </nav>
 <body class="text-light" style="background: url('{% static 'Images/bgimg.jpg' %}') no-repeat center center;">
+
 {% block content %}
 <!-- Content Goes here -->
 {% endblock content %}
-</body>
+
 <!-- Footer -->
 <footer>
 
 </footer>
+
+</body>
+
 
 <!-- To limit the ammount of characters that can be put int the forms. -->
 
