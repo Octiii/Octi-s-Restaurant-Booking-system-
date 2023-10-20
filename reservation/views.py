@@ -73,18 +73,14 @@ class MakeDish(generic.CreateView):
         return context
 
 
-#def make_dish(request):
-#    menuItem = dish.objects.all()
-#    context = {
-#        'menuItem' : menuItem
-#    }
-#    if request.method == 'POST':
-#        name = request.POST.get('dish_name')
-#        text = request.POST.get('dish_text')
-#        dish.objects.create(name=name, text=text)
-#    return render(request, 'menu.html', dishList)
-
-
-
+class DeleteDish(generic.DeleteView):
+    model = dish
+    template_name = 'menu.html'
+    success_url = 'menu'
+    success_mesage = 'Dish deleted!'
+    
+    def get_context_data(self, **kwargs):
+        context = super(DeleteDish, self).get_context_data(**kwargs)
+        return context
 
 

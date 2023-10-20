@@ -13,6 +13,7 @@ urlpatterns = [
     path('reserv_table', views.reserv_table, name='reserv_table'),
     path('bookings_navigation', views.bookings_navigation, name='bookings_navigation'),
     path('delete/<reserv_id>', views.delete_reservation, name='delete'),
+    path('delete_dish/<dish_id>', views.DeleteDish.as_view(), name='delete_dish'),
 ]
 
 # Gotcha, okay so the home template will need to be rendered in one of the views. Conventionally, you can call this home if you want. So you would have:

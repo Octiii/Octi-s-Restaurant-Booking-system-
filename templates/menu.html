@@ -18,6 +18,10 @@
       <h5> {{ dish.name|safe }} </h5>
       <h5> {{ dish.text|safe }} </h5>
       <img class="img-fluid " src=" {{ dish.featured_image.url }}" alt="Tasty dish Image!">
+      <form action="{% url 'delete_dish' dish.id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Delete</button>
+      </form>
     </div>
     
    {% endfor %} 
